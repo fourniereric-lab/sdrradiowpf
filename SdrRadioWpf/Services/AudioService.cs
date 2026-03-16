@@ -117,6 +117,8 @@ public sealed class AudioService : IDisposable
     private static float DemodSsb(float i, float q, bool upper) =>
         upper ? i + q : i - q;
 
+    // CW uses the same envelope detection as AM; kept separate to allow future
+    // extensions such as narrow-band filtering or BFO tone injection.
     private static float DemodCw(float i, float q) =>
         MathF.Sqrt(i * i + q * q);
 
